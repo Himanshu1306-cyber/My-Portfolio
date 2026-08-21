@@ -18,7 +18,7 @@
 
 ## 🔗 Live Demo
 
-> **[https://my-portfolio-psi-eight-22.vercel.app/]([https://your-portfolio.vercel.app](https://my-portfolio-psi-eight-22.vercel.app/))**
+[https://my-portfolio-psi-eight-22.vercel.app/]([https://your-portfolio.vercel.app](https://my-portfolio-psi-eight-22.vercel.app/))
 > _(Replace this with your actual link after deploying.)_
 
 ---
