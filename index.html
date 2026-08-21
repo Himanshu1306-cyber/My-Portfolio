@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Himanshu Raj | Blockchain Developer</title>
+<meta name="description" content="Himanshu Raj — Blockchain & Web3 Developer. Building decentralized apps, smart contracts and on-chain experiences." />
+<meta property="og:title" content="Himanshu Raj | Blockchain Developer" />
+<meta property="og:description" content="Blockchain & Web3 Developer building decentralized apps and smart contracts." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#0c0513" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+<style>
+  :root{
+    --bg:#0c0513;
+    --bg-2:#1b1035;
+    --purple:#c770f0;
+    --purple-2:#be50f4;
+    --purple-soft:rgba(199,112,240,.18);
+    --text:#ffffff;
+    --muted:#b8b1c9;
+    --card:rgba(255,255,255,.04);
+    --card-border:rgba(199,112,240,.28);
+    --maxw:1140px;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Poppins',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  /* ambient background */
+  .bg-orbs{position:fixed;inset:0;z-index:-2;overflow:hidden}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+  .orb.a{width:480px;height:480px;background:#6d28d9;top:-140px;left:-120px}
+  .orb.b{width:420px;height:420px;background:#9d2fb5;bottom:-160px;right:-100px}
+  .orb.c{width:360px;height:360px;background:#3b1f6b;top:40%;left:45%}
+  #stars{position:fixed;inset:0;z-index:-1}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+  /* navbar */
+  header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s,padding .3s}
+  header.scrolled{background:rgba(10,4,20,.82);backdrop-filter:blur(12px);box-shadow:0 6px 24px rgba(0,0,0,.4)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{font-weight:800;font-size:1.35rem;letter-spacing:.5px;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+  .logo span{color:var(--purple)}
+  .nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+  .nav-links a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.94rem;padding:8px 14px;border-radius:10px;transition:.25s}
+  .nav-links a:hover,.nav-links a.active{color:#fff;background:var(--purple-soft)}
+  .nav-social{display:flex;gap:10px;margin-left:8px}
+  .nav-social a{color:#fff;font-size:1.15rem;width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--card-border);border-radius:10px;transition:.25s}
+  .nav-social a:hover{background:var(--purple);transform:translateY(-3px)}
+  .burger{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer}
+
+  /* hero */
+  .hero{min-height:calc(100vh - 70px);display:flex;align-items:center;padding:60px 0}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;width:100%}
+  .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--purple);font-size:.95rem;letter-spacing:1px;margin-bottom:10px}
+  .hero h1{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:800;line-height:1.15;margin-bottom:6px}
+  .hero h1 .name{background:linear-gradient(90deg,var(--purple),#f0a5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .typed-wrap{font-size:clamp(1.2rem,3vw,1.8rem);font-weight:600;height:2.4rem;display:flex;align-items:center;gap:6px;margin:6px 0 18px}
+  .typed{font-family:'JetBrains Mono',monospace;color:var(--purple)}
+  .cursor{display:inline-block;width:2px;height:1.5rem;background:var(--purple);animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .hero p.lead{color:var(--muted);max-width:520px;margin-bottom:26px;font-size:1.02rem}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{padding:12px 26px;border-radius:12px;font-weight:600;text-decoration:none;font-size:.95rem;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+  .btn-primary{background:linear-gradient(90deg,var(--purple-2),var(--purple));color:#120820;box-shadow:0 8px 24px rgba(199,112,240,.35)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(199,112,240,.5)}
+  .btn-ghost{border:1px solid var(--card-border);color:#fff}
+  .btn-ghost:hover{background:var(--purple-soft);transform:translateY(-3px)}
+
+  .avatar-box{display:flex;justify-content:center}
+  .avatar-ring{position:relative;width:min(340px,80vw);aspect-ratio:1}
+  .avatar-ring::before{content:"";position:absolute;inset:-14px;border-radius:50%;background:conic-gradient(from 0deg,var(--purple),#3b1f6b,var(--purple));filter:blur(6px);opacity:.7;animation:spin 8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .avatar-ring img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:50%;border:4px solid rgba(255,255,255,.08);animation:float 5s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+  /* sections */
+  section{padding:90px 0}
+  .sec-head{text-align:center;margin-bottom:50px}
+  .sec-head .kicker{font-family:'JetBrains Mono',monospace;color:var(--purple);font-size:.9rem;letter-spacing:2px;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-top:6px}
+  .sec-head h2 b{color:var(--purple)}
+
+  /* about */
+  .about-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:38px;backdrop-filter:blur(8px);max-width:840px;margin:0 auto;font-size:1.05rem;color:#e7e2f4}
+  .about-card p{margin-bottom:16px}
+  .about-card .hl{color:var(--purple);font-weight:600}
+  .quote{margin-top:24px;padding-top:20px;border-top:1px dashed var(--card-border);font-style:italic;color:var(--muted)}
+
+  /* skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px;max-width:900px;margin:0 auto}
+  .skill{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:26px 12px;text-align:center;transition:.25s;backdrop-filter:blur(6px)}
+  .skill:hover{transform:translateY(-6px);border-color:var(--purple);box-shadow:0 10px 26px rgba(199,112,240,.25)}
+  .skill i{font-size:2.6rem}
+  .skill img{width:2.6rem;height:2.6rem;object-fit:contain}
+  .skill span{display:block;margin-top:10px;font-size:.85rem;color:var(--muted)}
+
+  /* projects */
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+  .proj{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;transition:.3s;backdrop-filter:blur(6px)}
+  .proj:hover{transform:translateY(-8px);border-color:var(--purple);box-shadow:0 16px 40px rgba(0,0,0,.45)}
+  .proj-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .proj-icon{width:46px;height:46px;border-radius:12px;background:var(--purple-soft);display:grid;place-items:center;font-size:1.4rem;color:var(--purple)}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--purple);border:1px solid var(--card-border);padding:4px 10px;border-radius:20px}
+  .proj h3{font-size:1.2rem;margin-bottom:8px}
+  .proj p{color:var(--muted);font-size:.94rem;flex:1;margin-bottom:18px}
+  .proj-links{display:flex;gap:12px}
+  .proj-links a{font-size:.85rem;font-weight:600;text-decoration:none;color:#fff;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;border:1px solid var(--card-border);transition:.25s}
+  .proj-links a:hover{background:var(--purple);color:#120820}
+  .more-row{text-align:center;margin-top:40px}
+
+  /* contact */
+  .contact{text-align:center}
+  .contact p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+  .social-big{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+  .social-big a{width:56px;height:56px;display:grid;place-items:center;font-size:1.5rem;color:#fff;border:1px solid var(--card-border);border-radius:14px;transition:.25s}
+  .social-big a:hover{background:var(--purple);color:#120820;transform:translateY(-5px)}
+
+  /* footer */
+  footer{border-top:1px solid var(--card-border);padding:30px 0;text-align:center;color:var(--muted);font-size:.9rem}
+  footer .heart{color:var(--purple)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* responsive */
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;text-align:center}
+    .hero{padding:40px 0 70px}
+    .avatar-box{order:-1}
+    .cta-row,.typed-wrap{justify-content:center}
+    .hero p.lead{margin-left:auto;margin-right:auto}
+    .nav-links{position:fixed;inset:70px 0 auto 0;flex-direction:column;background:rgba(12,5,19,.97);backdrop-filter:blur(14px);padding:20px;gap:4px;transform:translateY(-160%);transition:transform .35s;border-bottom:1px solid var(--card-border)}
+    .nav-links.open{transform:none}
+    .nav-links a{padding:14px}
+    .nav-social{display:none}
+    .burger{display:block}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+  <div class="bg-orbs"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+  <canvas id="stars"></canvas>
+
+  <header id="header">
+    <div class="wrap">
+      <nav>
+        <a href="#home" class="logo">Himanshu<span>.</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-social">
+          <a href="https://github.com/himanshu1306-cyber" target="_blank" rel="noopener" aria-label="GitHub"><i class="devicon-github-original"></i></a>
+          <a href="https://www.linkedin.com/in/himanshu-raj-a615bb377" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="devicon-linkedin-plain"></i></a>
+        </div>
+        <button class="burger" id="burger" aria-label="Menu">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Hi there! 👋</div>
+          <h1>I'm <span class="name">Himanshu Raj</span></h1>
+          <div class="typed-wrap">
+            <span class="typed" id="typed"></span><span class="cursor"></span>
+          </div>
+          <p class="lead">A blockchain developer passionate about the decentralized web — writing smart contracts, building dApps and turning trustless ideas into real, working products on-chain.</p>
+          <div class="cta-row">
+            <a href="#projects" class="btn btn-primary">View my work →</a>
+            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+          </div>
+        </div>
+        <div class="avatar-box">
+          <div class="avatar-ring">
+            <img src="https://avatars.githubusercontent.com/u/256501605?v=4" alt="Himanshu Raj" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">Let me introduce myself</div>
+        <h2>About <b>Me</b></h2>
+      </div>
+      <div class="about-card reveal">
+        <p>Hello! I'm <span class="hl">Himanshu Raj</span>, a blockchain developer fascinated by decentralization and the idea of building systems that run on trust, code and consensus instead of middlemen.</p>
+        <p>I work with <span class="hl">Solidity</span> and the <span class="hl">Ethereum</span> ecosystem to write smart contracts, and pair them with modern JavaScript and React front-ends to ship complete <span class="hl">dApps</span> — from the on-chain logic to the interface users actually touch.</p>
+        <p>I'm constantly learning how Web3 tooling fits together — wallets, contracts, testing and deployment — and pushing every project to be a little more secure and a little cleaner than the last.</p>
+        <div class="quote">"In code we trust."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">What I work with</div>
+        <h2>Skills &amp; <b>Tools</b></h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill reveal"><i class="devicon-solidity-plain" style="color:#fff"></i><span>Solidity</span></div>
+        <div class="skill reveal"><img src="https://cdn.simpleicons.org/ethereum/ffffff" alt="Ethereum" /><span>Ethereum</span></div>
+        <div class="skill reveal"><img src="https://cdn.simpleicons.org/web3dotjs/F16822" alt="Web3.js" /><span>Web3.js</span></div>
+        <div class="skill reveal"><img src="https://cdn.simpleicons.org/ethers/ffffff" alt="Ethers.js" /><span>Ethers.js</span></div>
+        <div class="skill reveal"><img src="https://cdn.simpleicons.org/solana/9945FF" alt="Solana" /><span>Solana</span></div>
+        <div class="skill reveal"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+        <div class="skill reveal"><i class="devicon-react-original colored"></i><span>React</span></div>
+        <div class="skill reveal"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+        <div class="skill reveal"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+        <div class="skill reveal"><i class="devicon-c-plain colored"></i><span>C</span></div>
+        <div class="skill reveal"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+        <div class="skill reveal"><i class="devicon-github-original"></i><span>GitHub</span></div>
+        <div class="skill reveal"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">Some things I've built</div>
+        <h2>My <b>Projects</b></h2>
+      </div>
+      <div class="proj-grid">
+
+        <article class="proj reveal">
+          <div class="proj-top"><div class="proj-icon">🤝</div><span class="tag">Solidity · dApp</span></div>
+          <h3>Decentralized Freelancer Escrow</h3>
+          <p>A trustless escrow dApp for freelancers and clients. Funds are locked in a smart contract and released automatically on milestone approval — no middleman, no payment disputes. Built with Solidity contracts and a Web3 wallet-connected frontend.</p>
+          <div class="proj-links">
+            <a href="https://github.com/himanshu1306-cyber?tab=repositories" target="_blank" rel="noopener"><i class="devicon-github-original"></i> Code</a>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top"><div class="proj-icon">📈</div><span class="tag">Web3 · DeFi</span></div>
+          <h3>Decentralized Social Trading Platform</h3>
+          <p>A Web3 platform where traders publish strategies on-chain and others can transparently copy-trade them. Performance and payouts are tracked by smart contracts, so results are verifiable and permissionless — social trading without a central broker.</p>
+          <div class="proj-links">
+            <a href="https://github.com/himanshu1306-cyber?tab=repositories" target="_blank" rel="noopener"><i class="devicon-github-original"></i> Code</a>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top"><div class="proj-icon">⛓️</div><span class="tag">Web3</span></div>
+          <h3>BuildChain Dashboard</h3>
+          <p>A dashboard interface for the BuildChain project — visualizing on-chain activity and data in a clean, structured Web3-style UI.</p>
+          <div class="proj-links">
+            <a href="https://github.com/Himanshu1306-cyber/Build-Chain-Dashboard" target="_blank" rel="noopener"><i class="devicon-github-original"></i> Code</a>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top"><div class="proj-icon">🌐</div><span class="tag">dApp UI</span></div>
+          <h3>BuildChain Web Page</h3>
+          <p>The refreshed landing page and front-end for BuildChain — an improved, more polished interface layer for the project.</p>
+          <div class="proj-links">
+            <a href="https://github.com/Himanshu1306-cyber/New--BuildChain-Web-Page" target="_blank" rel="noopener"><i class="devicon-github-original"></i> Code</a>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top"><div class="proj-icon">🔐</div><span class="tag">React</span></div>
+          <h3>Password Generator</h3>
+          <p>A customizable password generator built with React hooks — adjust length and character types to create strong, random passwords instantly.</p>
+          <div class="proj-links">
+            <a href="https://github.com/Himanshu1306-cyber/Password-Generator" target="_blank" rel="noopener"><i class="devicon-github-original"></i> Code</a>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top"><div class="proj-icon">🎨</div><span class="tag">React</span></div>
+          <h3>Background Changer</h3>
+          <p>A fun React state demo where clicking a color instantly switches the page background — a hands-on take on events and state updates.</p>
+          <div class="proj-links">
+            <a href="https://github.com/Himanshu1306-cyber/React-Bgchanger-Project" target="_blank" rel="noopener"><i class="devicon-github-original"></i> Code</a>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top"><div class="proj-icon">⚛️</div><span class="tag">React</span></div>
+          <h3>React Project</h3>
+          <p>A component-based React project exploring how reusable UI pieces come together into a working single-page app.</p>
+          <div class="proj-links">
+            <a href="https://github.com/Himanshu1306-cyber/React-Project-" target="_blank" rel="noopener"><i class="devicon-github-original"></i> Code</a>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top"><div class="proj-icon">📚</div><span class="tag">JavaScript</span></div>
+          <h3>React Learning</h3>
+          <p>A collection of hands-on experiments and mini-builds documenting my React learning journey, from basics to interactivity.</p>
+          <div class="proj-links">
+            <a href="https://github.com/Himanshu1306-cyber/React-Learning" target="_blank" rel="noopener"><i class="devicon-github-original"></i> Code</a>
+          </div>
+        </article>
+
+      </div>
+      <div class="more-row reveal">
+        <a href="https://github.com/himanshu1306-cyber?tab=repositories" target="_blank" rel="noopener" class="btn btn-ghost"><i class="devicon-github-original"></i> See all repositories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">Let's connect</div>
+        <h2>Find Me <b>On</b></h2>
+      </div>
+      <p class="reveal">Feel free to reach out — whether it's about a project, an opportunity, or just to say hi. My inbox is always open.</p>
+      <div class="social-big reveal">
+        <a href="https://github.com/himanshu1306-cyber" target="_blank" rel="noopener" aria-label="GitHub"><i class="devicon-github-original"></i></a>
+        <a href="https://www.linkedin.com/in/himanshu-raj-a615bb377" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="devicon-linkedin-plain"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Designed &amp; built by <b>Himanshu Raj</b> <span class="heart">♥</span> · © <span id="year"></span>
+    </div>
+  </footer>
+
+<script>
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // navbar scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // mobile menu
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // active link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const links = navLinks.querySelectorAll('a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+  });
+
+  // typewriter
+  const roles = ['Blockchain Developer', 'Smart Contract Developer', 'Web3 Developer', 'Solidity Developer', 'dApp Builder'];
+  const typed = document.getElementById('typed');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) {
+    typed.textContent = roles[0];
+  } else {
+    let ri = 0, ci = 0, deleting = false;
+    (function type() {
+      const word = roles[ri];
+      typed.textContent = deleting ? word.slice(0, ci--) : word.slice(0, ci++);
+      let delay = deleting ? 55 : 110;
+      if (!deleting && ci === word.length + 1) { deleting = true; delay = 1400; }
+      else if (deleting && ci === 0) { deleting = false; ri = (ri + 1) % roles.length; delay = 350; }
+      setTimeout(type, delay);
+    })();
+  }
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 6) * 60 + 'ms'; io.observe(el); });
+
+  // starfield
+  if (!reduce) {
+    const c = document.getElementById('stars'), x = c.getContext('2d');
+    let stars = [];
+    function resize() { c.width = innerWidth; c.height = innerHeight;
+      stars = Array.from({length: Math.min(90, Math.floor(innerWidth / 16))}, () => ({
+        x: Math.random() * c.width, y: Math.random() * c.height,
+        r: Math.random() * 1.4 + .3, s: Math.random() * .3 + .05, o: Math.random() * .6 + .2
+      }));
+    }
+    function draw() {
+      x.clearRect(0, 0, c.width, c.height);
+      stars.forEach(st => {
+        x.beginPath(); x.arc(st.x, st.y, st.r, 0, 7); 
+        x.fillStyle = 'rgba(199,112,240,' + st.o + ')'; x.fill();
+        st.y -= st.s; if (st.y < 0) { st.y = c.height; st.x = Math.random() * c.width; }
+      });
+      requestAnimationFrame(draw);
+    }
+    resize(); draw(); window.addEventListener('resize', resize);
+  }
+</script>
+</body>
+</html>
